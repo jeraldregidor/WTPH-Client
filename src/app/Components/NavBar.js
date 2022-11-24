@@ -11,7 +11,7 @@ const NavBar = () => {
     if (parseInt(fillPos) === 2) {
       fill = "transition-all duration-300 h-14 bg-[#62FFFF] w-1/4";
     }
-    else if (parseInt(fillPos) === 3|| parseInt(fillPos) == 4 ) {
+    else if (parseInt(fillPos) === 3|| parseInt(fillPos) === 4 ) {
       fill = "transition-all duration-300 h-14 bg-[#62FFFF] w-1/2";
     }
     else if (parseInt(fillPos) === 5) {
@@ -26,7 +26,7 @@ const NavBar = () => {
         <div className="text-2xl right-2 h-5/6 flex items-center mr-3 hover:underline">
           Log In
         </div>
-        <div className="text-2xl right-2 bg-red-400 hover:bg-[#FF0000] hover:scale-110 h-4/6 px-5 rounded-full flex items-center font-[Open_Sans] shadow-md">
+        <div className="text-2xl right-2 bg-red-400 hover:bg-[#FF0000] hover:scale-110 h-4/6 px-5 rounded-full flex items-center font-[Open_Sans] shadow-md"> 
           Register
         </div>
       </div>

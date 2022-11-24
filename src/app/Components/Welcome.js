@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { setfillPos } from "../Slices/navSlice";
 
@@ -46,7 +46,7 @@ const Welcome = () => {
             />
           </div>
           <div className="w-full h-2/6 flex items-center justify-center">
-            <div className="text-center w-3/4 text-2xl font-semibold text-slate-700">
+            <div className="text-center w-3/4 text-base md:text-4xl font-semibold text-slate-700">
               Worth Trade Philippines offers computer parts and build available
               on its reasonable price.
             </div>
@@ -64,7 +64,7 @@ const Welcome = () => {
         </div>
         <div className="h-[40%] flex">
           <div className="h-full w-1/2 flex items-center justify-end">
-            <div className="ml-2 text-left md:w-3/4 text-2xl font-semibold text-[#474242]">
+            <div className="ml-2 text-left md:w-3/4 text-base md:text-3xl font-semibold text-[#474242]">
               We are offering brand new and even well functioning pre-loved
               parts suitable for your build.
             </div>
@@ -92,7 +92,7 @@ const Welcome = () => {
             </div>
           </div>
           <div className="h-full w-1/2 flex items-center justify-start">
-            <div className="mr-2 text-left md:w-3/4 text-2xl font-semibold text-[#FFFFFF]">
+            <div className="mr-2 text-left md:w-3/4 text-base md:text-3xl font-semibold text-[#FFFFFF]">
               Inquire, ask and select what’s the good build for you based on
               your needs. Our already built products are waiting.
             </div>
@@ -113,10 +113,12 @@ const Welcome = () => {
                 <h1 className="text-2xl font-bold text-white h-2/6 flex items-center justify-center md:text-5xl">
                   Contact Us
                 </h1>
-                <div className="h-full flex items-center h-4/6">
+                <div className="h-full flex items-start h-4/6">
                   <div className=" md:text-2xl w-full h-fit text-[#EDE9E9] md:space-y-8">
                     <h3>Mamatid Cabuyao Laguna</h3>
-                    <h3>askquestions@worthtradeph.com</h3>
+                    <h3 className="md:text-sm lg:text-2xl">
+                      askquestions@worthtradeph.com
+                    </h3>
                     <h3>+63 9** *** ****</h3>
                   </div>
                   {/***********************/}
@@ -127,12 +129,12 @@ const Welcome = () => {
               <h1 className="text-2xl font-bold text-white h-2/6 flex items-center justify-center md:text-5xl">
                 Follow Us
               </h1>
-              <div className="h-4/6 flex items-center justify-center">
-              <img
-                className="h-3/4"
-                src={process.env.PUBLIC_URL + "./images/Logos.png"}
-                alt=""
-              />
+              <div className="h-4/6 flex items-start justify-center">
+                <img
+                  className="md:h-2/4 max-h-full p-2"
+                  src={process.env.PUBLIC_URL + "./images/Logos.png"}
+                  alt=""
+                />
               </div>
             </div>
           </div>
