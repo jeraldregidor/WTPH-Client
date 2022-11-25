@@ -1,4 +1,5 @@
 import React from "react";
+import AdminDashBoard from "./app/Components/AdminDashBoard";
 import Login from "./app/Components/Login";
 import NavBar from "./app/Components/NavBar";
 import Register from "./app/Components/Register";
@@ -10,7 +11,9 @@ function App() {
       {/* <NavBar />
       <Welcome /> */}
       {/* <Login/> */}
-      <Register/>
+      {/* <Register/> */}
+      <AdminDashBoard/>
+
 
       
     </div>

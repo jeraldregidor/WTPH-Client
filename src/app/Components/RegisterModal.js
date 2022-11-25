@@ -10,10 +10,6 @@ import {
   setPwConfirm,
 } from "../Slices/registerSlice";
 
-const containerStyle =
-  "h-5/6 flex items-center justify-center bg-teal-200 p-1 relative";
-// const containerStyle ="h-5/6 flex items-center justify-center bg-[#1A73E8] relative";
-
 const RegisterModal = () => {
   const dispatch = useDispatch();
 
@@ -30,7 +26,25 @@ const RegisterModal = () => {
     isPwMatch,
   } = useSelector((store) => store.register);
 
-  const isSubmitDisabled =
+  const containerStyle = isRegWithGoogle
+    ? "h-5/6 flex items-center justify-center bg-[#1A73E8] p-1 relative"
+    : "h-5/6 flex items-center justify-center bg-teal-200 p-1 relative";
+
+  const bgIcon = isRegWithGoogle ? (
+    <FaGoogle size={250} className="opacity-30 absolute" />
+  ) : (
+    <FaMobileAlt size={250} className="opacity-30 absolute" />
+  );
+
+  const isSubmitDisabled = isRegWithGoogle? 
+  isAddrEmp ||
+  isPassEmp ||
+  iscPasswordEmp ||
+  isContactNumberEmp ||
+  !isValidContactNumber ||
+  !isValidPw ||
+  !isPwMatch
+  :
     isFnEmp ||
     isLnEmp ||
     isAddrEmp ||
@@ -77,22 +91,36 @@ const RegisterModal = () => {
   return (
     <div className={containerStyle}>
       <div className="grid grid-rows-[7] gap-1 w-full h-full z-10">
-        <div className=" h-14 w-full flex items-end">
-          <input
-            type="text"
-            placeholder="First Name"
-            className="ring-1 h-10 ring-inset ring-slate-400 rounded-md w-full text-center"
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className=" h-14 w-full flex items-end">
-          <input
-            type="text"
-            placeholder="Last Name"
-            className="ring-1 h-10 ring-inset ring-slate-400 rounded-md w-full text-center"
-            onChange={handleInputChange}
-          />
-        </div>
+        {isRegWithGoogle ? (
+          <div className=" h-14 w-full flex items-end text-white font-semibold">
+            <h1>Hi Jerald! It's nice to have you.</h1>
+          </div>
+        ) : (
+          <div className=" h-14 w-full flex items-end">
+            <input
+              type="text"
+              placeholder="First Name"
+              className="ring-1 h-10 ring-inset ring-slate-400 rounded-md w-full text-center"
+              onChange={handleInputChange}
+            />
+          </div>
+        )}
+
+        {isRegWithGoogle ? (
+          <div className=" h-14 w-full flex items-end text-white font-bold">
+            <h1>Proceed by filling details below.</h1>
+          </div>
+        ) : (
+          <div className=" h-14 w-full flex items-end">
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="ring-1 h-10 ring-inset ring-slate-400 rounded-md w-full text-center"
+              onChange={handleInputChange}
+            />
+          </div>
+        )}
+
         <div className=" h-14 w-full flex items-end">
           <input
             type="text"
@@ -154,15 +182,14 @@ const RegisterModal = () => {
             className="w-1/2 bg-green-300 h-full rounded-full mx-2 enabled:hover:scale-110 disabled:opacity-50 shadow-md ring-1 ring-slate-400"
             disabled={isSubmitDisabled}
           >
-            Submit
+            Proceed
           </button>
           <button className="w-1/2 bg-red-200 h-full rounded-full mx-2 hover:scale-105 shadow-md ring-1 ring-slate-400">
             Cancel
           </button>
         </div>
       </div>
-      <FaMobileAlt size={250} className="opacity-30 absolute" />
-      {/* <FaGoogle size={250} className="opacity-30 absolute" /> */}
+      {bgIcon}
     </div>
   );
 };

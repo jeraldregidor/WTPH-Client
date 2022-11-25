@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const NUMBER_REGEX = /^[0-9]*$/;
 
 const initialState = {
-  isRegWithGoogle: false,
+  isRegWithGoogle: true,
   isFnEmp: true,
   isLnEmp: true,
   isAddrEmp: true,
